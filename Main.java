@@ -8,7 +8,9 @@ class Main {
         Scanner input = new Scanner(System.in);
         ArrayList<String> songList = new ArrayList<String>();
         System.out.println("Spitofy");
+        Song song1 = new Song();
         
+
         
     } 
 }
