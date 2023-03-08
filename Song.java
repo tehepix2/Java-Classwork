@@ -1,10 +1,13 @@
 public class Song {
     private double songCost;
-    private String songName;
+    private String songName = "NA";
     private double songRating;
     private String songAuthor;
+    private int songDay;
+    private int songMonth;
+    private int songYear;
     
-    public void createSong(String name, double cost, double rating, String author) {
+    public Song(String name, double cost, double rating, String author) {
         this.songAuthor = author;
         this.songName = name;
         this.songCost = cost;
@@ -21,5 +24,14 @@ public class Song {
     }
     public String getAuthor() {
         return this.songAuthor;
+    }
+    public int getDay() {
+        return songDay; 
+    }
+    public int getMonth() {
+        return songMonth;
+    }
+    public int getYear() {
+        return songYear;
     }
 }
