@@ -7,7 +7,7 @@ public class Song {
     private int songMonth;
     private int songYear;
     
-    public Song(String name, double cost, double rating, String author) {
+    public Song(String name, double cost, double rating, String author, int day, int month, int year) {
         this.songAuthor = author;
         this.songName = name;
         this.songCost = cost;

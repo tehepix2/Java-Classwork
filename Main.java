@@ -37,9 +37,15 @@ class Main {
                         if (songChoice == 0) {
                             songLoop = false;
                         }
-                        else if (songChoice != 0) {
+                        else {
                             while (songViewLoop) {
-                                
+                                System.out.println("What would you like to do?");
+                                System.out.println("Song name: " + songList(songChoice).songName);
+                                System.out.println("Author: " + ongList(songChoice).songAuthor);
+                                System.out.println("Your rating: " + songList(songChoice).songRating);
+                                System.out.println("Release date: " + songList(songChoice).songMonth + "/" + songList(songChoice).songDay + "/" + songList(songChoice).songYear);
+                                System.out.println("0 -- Go Back\n1 -- Edit Name\n2 -- Edit Rating\n3 -- Edit Author\n4 -- Edit Song Cost\n5 -- Edit Release Date");
+
                             }
                         }
 
@@ -61,7 +67,19 @@ class Main {
                 System.out.print("Song author: ");
                 String songAuthorChoice = input.next();
                 lib.clearConsole();
-                songList.add(new Song(songNameChoice, songCostChoice, songRatingChoice, songAuthorChoice));
+                System.out.println("Release date");
+                System.out.print("Day: ");
+                int songDayChoice = input.nextInt();
+                lib.clearConsole();
+                System.out.println("Release date");
+                System.out.print("Month: ");
+                int songMonthChoice = input.nextInt();
+                lib.clearConsole();
+                System.out.println("Release date: ");
+                System.out.print("Year: ");
+                int songYearChoice = input.nextInt();
+                lib.clearConsole();
+                songList.add(new Song(songNameChoice, songCostChoice, songRatingChoice, songAuthorChoice, songDayChoice, songMonthChoice, songYearChoice));
                 System.out.print("Song added!");
                 lib.sleep(2000);
                 lib.clearConsole();
