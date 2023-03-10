@@ -11,7 +11,7 @@ class Main {
         
         while (true) {
             System.out.println("Spitofy");
-            System.out.println("What would you like to do?\n1 -- Song List\n2 -- Add a new song\n3 -- Most expensive song\n4 -- Cheapest Song\n5 -- Search songs by an artist\n6 -- Search earliest release\n7 -- Search latest release\n8 -- Leave Program");
+            System.out.println("What would you like to do?\n1 -- Song List\n2 -- Add a new song\n3 -- Most expensive song\n4 -- Cheapest Song\n5 -- Search songs by an artist\n6 -- Leave Program");
             int userChoice = input.nextInt();
             lib.clearConsole();
             if (userChoice == 1) {
@@ -151,6 +151,73 @@ class Main {
                 lib.sleep(2000);
                 lib.clearConsole();
 
+            }
+            else if (userChoice == 3) {
+                if (songList.size() == 0) {
+                    System.out.println("You have no songs...");
+                    lib.sleep(2000);
+                    lib.clearConsole();
+                }
+                else {
+                    Song expSong = songList.get(0);
+                    for (Song i:songList) {
+                        if (i.getCost() > expSong.getCost()) {
+                            expSong = i;
+                        }
+                    }
+                    System.out.println("Your most expensive song is: " + expSong.getName() + ", by " + expSong.getAuthorF() + " " + expSong.getAuthorL() + ".");
+                    lib.sleep(2000);
+                    lib.clearConsole();
+                }
+            }
+            else if (userChoice == 4) {
+                if (songList.size() == 0) {
+                    System.out.println("You have no songs...");
+                    lib.sleep(2000);
+                    lib.clearConsole();
+                }
+                else {
+                    Song expSong = songList.get(0);
+                    for (Song i:songList) {
+                        if (i.getCost() < expSong.getCost()) {
+                            expSong = i;
+                        }
+                    }
+                    System.out.println("Your cheapest song is: " + expSong.getName() + ", by " + expSong.getAuthorF() + " " + expSong.getAuthorL() + ".");
+                    lib.sleep(2000);
+                    lib.clearConsole();
+                }
+            }
+            else if (userChoice == 5) {
+                if (songList.size() == 0) {
+                    System.out.println("You have no songs...");
+                    lib.sleep(2000);
+                    lib.clearConsole();
+                }
+                else {
+                    
+                    System.out.print("Search by: \n1 -- First name\n2 -- Last Name");
+                    int authorSearchChoice = input.nextInt();
+                    lib.clearConsole();
+                    if (authorSearchChoice == 1) {
+                        System.out.print("Enter first name: ");
+                        String authorSearchF = input.next();
+                        lib.clearConsole();
+                        int songCount = 0;
+                        for (Song i:songList) {
+                            if (i.getAuthor< expSong.getCost()) {
+                                expSong = i;
+                            }
+                        }
+                        System.out.println("Your cheapest song is: " + expSong.getName() + ", by " + expSong.getAuthorF() + " " + expSong.getAuthorL() + ".");
+                        if (songCount == 0) {
+                            System.out.println("No songs found.");
+                        }
+                        lib.sleep(2000);
+                        lib.clearConsole();
+                    }
+                    
+                }
             }
         }
     } 
