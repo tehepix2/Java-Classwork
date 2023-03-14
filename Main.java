@@ -205,14 +205,48 @@ class Main {
                         lib.clearConsole();
                         int songCount = 0;
                         for (Song i:songList) {
-                            if (i.getAuthor< expSong.getCost()) {
-                                expSong = i;
+                            if (i.getAuthorF().equals(authorSearchF)) {
+                                songCount++;
+                                System.out.println(i.getName() + " by " + i.getAuthorF() + " " + i.getAuthorL());
                             }
                         }
-                        System.out.println("Your cheapest song is: " + expSong.getName() + ", by " + expSong.getAuthorF() + " " + expSong.getAuthorL() + ".");
+                        
                         if (songCount == 0) {
                             System.out.println("No songs found.");
+                            lib.sleep(2000);
+                            lib.clearConsole();
                         }
+                        else {
+                            System.out.print("Enter any letter to continue...");
+                            String confirm = input.next();
+                            lib.clearConsole();
+                        }
+                    }
+                    else if (authorSearchChoice == 2) {
+                        System.out.print("Enter last name: ");
+                        String authorSearchL = input.next();
+                        lib.clearConsole();
+                        int songCount = 0;
+                        for (Song i:songList) {
+                            if (i.getAuthorL().equals(authorSearchL)) {
+                                songCount++;
+                                System.out.println(i.getName() + " by " + i.getAuthorF() + " " + i.getAuthorL());
+                            }
+                        }
+                        
+                        if (songCount == 0) {
+                            System.out.println("No songs found.");
+                            lib.sleep(2000);
+                            lib.clearConsole();
+                        }
+                        else {
+                            System.out.print("Enter any letter to continue...");
+                            String confirm = input.next();
+                            lib.clearConsole();
+                        }
+                    }
+                    else {
+                        System.out.println("Invalid input!");
                         lib.sleep(2000);
                         lib.clearConsole();
                     }
