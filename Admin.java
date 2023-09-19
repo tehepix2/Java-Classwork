@@ -20,5 +20,6 @@ public class Admin extends SchoolPerson {
 
     public void makeMoney() {
         System.out.println(super.getName() + " reduced the school's budget to gain more money!");
+        wealth+=3000;
     }
 }
