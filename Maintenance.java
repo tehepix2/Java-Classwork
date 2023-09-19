@@ -23,7 +23,7 @@ public class Maintenance extends SchoolPerson {
         }  
     }
     public void maintain() {
-        System.out.println(super.getName() + "maintains the " + type + " room!");
+        System.out.println(super.getName() + " maintains the " + type + " room!");
     }
 
 }
