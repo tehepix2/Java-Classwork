@@ -1,18 +1,19 @@
 public class Account implements Lockable {
-    private int balance = 0;
+    
     private boolean isLocked = true;
     private String user;
-    private String pass;
-    private String name;
+    private String key;
+    private double balance = 0;
 
-    public Account(int balance, boolean isLocked, String user, String pass, String name) {
-        this.balance = balance;
-        this.isLocked = isLocked;
+    public Account(String user, String key, double balance) {
         this.user = user;
-        this.pass = pass;
-        this.name = name;
+        this.key = key;
+        this.balance = balance;
     }
     
+    public void dashboard() {
+       
+    }
     public void lock() {
         if (isLocked == false) {
             isLocked = true;
@@ -29,17 +30,29 @@ public class Account implements Lockable {
         return isLocked;
     }
 
-    public void setKey(String pass) {
-        this.pass = pass;
-        System.out.println("Your new password is: " + pass);
+    public void setKey(String key) {
+        this.key = key;
+        System.out.println("Your new password is: " + key);
     }
 
-    @Override
-    public void setKey() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setKey'");
+    public boolean access(String pass, String user) {
+        if (pass.equals(this.key) && user.equals(this.user)) {
+            unlock();
+            return true;
+        }
+        else {
+            System.out.println("Wrong password.");
+            return false;
+        }
     }
 
-
-
+    public double getBalance() {
+        return balance;
+    }
+    public void addMoney(double money) {
+        balance += money;
+    }
+    public void takeMoney(double money) {
+        balance -= money;
+    }
 }
