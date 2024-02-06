@@ -3,12 +3,12 @@ public class Account implements Lockable {
     private boolean isLocked = true;
     private String user;
     private String key;
-    private double balance = 0;
+   
 
-    public Account(String user, String key, double balance) {
+    public Account(String user, String key) {
         this.user = user;
         this.key = key;
-        this.balance = balance;
+     
     }
     
     public void dashboard() {
@@ -45,14 +45,11 @@ public class Account implements Lockable {
             return false;
         }
     }
-
-    public double getBalance() {
-        return balance;
+    public String getPass() {
+        return key;
     }
-    public void addMoney(double money) {
-        balance += money;
+    public String getUser() {
+        return user;
     }
-    public void takeMoney(double money) {
-        balance -= money;
-    }
+   
 }
