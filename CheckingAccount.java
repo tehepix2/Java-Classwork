@@ -21,6 +21,15 @@ public class CheckingAccount extends Account {
             System.out.println("Broke");
         }
     }
+    public void sendMoney(double amount, SavingsAccount target) {
+        if (getBalance() >= amount) {
+            target.addMoney(amount);
+            takeMoney(amount);
+        }
+        else {
+            System.out.println("Broke");
+        }
+    }
     public double getBalance() {
         return balance;
     }

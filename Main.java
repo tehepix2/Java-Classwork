@@ -53,27 +53,79 @@ class Main {
               while (accessLoop) {
                 System.out.println("Welcome, " + checkingList.get(access).getName());
                 System.out.println("What would you like to do?");
-                System.out.println(checkingList.get(access).getBalance());
+                System.out.println("Checking Account: " + checkingList.get(access).getBalance());
+                System.out.println("Savings Account: " + savingsList.get(access).getBalance());
+                System.out.println("Savings Interest Rate: " + savingsList.get(access).getInterest());
                 System.out.println("1 -- Deposit Money\n2 -- Withdraw money\n3 -- Send money\n4 -- Add money to savings\n5 -- Change password\n6 -- Logout");
                 int accountMenu = input.nextInt();
                 lib.clearConsole();
+                savingsList.get(access).interest();
                 if (accountMenu == 1) {
-
+                  System.out.println("How much money will you deposit?");
+                  double addMoney = input.nextDouble();
+                  checkingList.get(access).addMoney(addMoney);
+                  lib.clearConsole();
+                  System.out.println("Deposited $" + addMoney + ".");
+                  lib.sleep(2000);
+                  lib.clearConsole();
                 }
                 else if (accountMenu == 2) {
+                  System.out.println("How much money will you withdraw?");
+                  double subtractMoney = input.nextDouble();
+                  lib.clearConsole();
+                  if(checkingList.get(access).getBalance() >= subtractMoney) {
+                    checkingList.get(access).takeMoney(subtractMoney);
+                    lib.clearConsole();
+                    System.out.println("Withdrew $" + subtractMoney + ".");
+                    lib.sleep(2000);
+                    lib.clearConsole();
+                  }
+                  else {
+                    System.out.println("Not enough money!");
+                    lib.sleep(2000);
+                    lib.clearConsole();
+                  }
                   
                 }
                 else if (accountMenu == 3) {
+                  System.out.println("Who would you like to send money to?");
+                  for(int i = 0; i < checkingList.size(); i++) {
+                    System.out.println((i + 1) + " -- " + checkingList.get(i).getUser());
+                  }
+                  int personChoice = input.nextInt();
+                  lib.clearConsole();
+                  System.out.println("Sending money to: " + checkingList.get(personChoice - 1).getName());
+                  System.out.print("How much money would you like to send? : ");
+                  double moneySent = input.nextDouble();
+                  checkingList.get(access).sendMoney(moneySent, checkingList.get(personChoice - 1));
+                  lib.clearConsole();
+                  System.out.println("Sent $" + moneySent + "to " + checkingList.get(personChoice - 1).getName() + "!");
+                  lib.sleep(2000);
+                  lib.clearConsole();
 
                 }
                 else if (accountMenu == 4) {
-
+                  System.out.print("How much money would you like to add to savings? :");
+                  double moneySentS = input.nextDouble();
+                  checkingList.get(access).sendMoney(moneySentS, savingsList.get(access));
+                  lib.clearConsole();
+                  System.out.println("Added $" + moneySentS + " to savings!");
+                  lib.sleep(2000);
+                  lib.clearConsole();
                 }
                 else if (accountMenu == 5) {
-
+                  System.out.print("Choose a new password: ");
+                  String newPass = input.next();
+                  lib.clearConsole();
+                  accountList.get(access).setKey(newPass);
+                  lib.sleep(2000);
+                  lib.clearConsole();
                 }
                 else if (accountMenu == 6) {
-                  
+                  accountList.get(access).lock();
+                  lib.sleep(2000);
+                  lib.clearConsole();
+                  accessLoop = false; 
                 }
               }
               
@@ -127,7 +179,7 @@ class Main {
         }
         else if (loginChoice == 4) {
           programLoop = false;
-          System.out.println("You left Alpha Finance Bank.");
+          System.out.println("You left Alpha Finance Bank.\nThanks for using Alpha Finance Bank!");
         }
         else {
           System.out.println("Invalid Input!");

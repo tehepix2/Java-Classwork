@@ -39,4 +39,7 @@ public class SavingsAccount extends Account {
     public void takeMoney(double money) {
         balance -= money;
     }
+    public double getInterest() {
+        return interest;
+    }
 }
