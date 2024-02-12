@@ -1,31 +1,28 @@
-import java.util.Scanner;
-import java.util.ArrayList;
 import java.io.File;
 import java.io.IOException;
-import java.lang.Math;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
+public class Main {
 
-class Main {
-    public static void main(String[] args) {
-      lib.clearConsole();
-      File myFile = new File("Stuff.txt");
-      try {
-        if (myFile.createNewFile()) {
-          System.out.println("File created: " + myFile.getName());
+    public static void main(String[] args) throws IOException {
+        List<Integer> coordinates = new ArrayList<Integer>();
+        File myCoords = new File("Coordinates.txt");
+        myCoords.createNewFile();
+        Scanner scanner = new Scanner(myCoords);
+        scanner.useDelimiter(" ");
+
+        while (scanner.hasNext()) {
+            String next = scanner.next();
+            coordinates.add(Integer.valueOf(next));
         }
-        else {
-          System.out.println("File already exists.");
-          myFile.delete();
+        scanner.close();
+        for (Integer i : coordinates) {
+          System.out.println(i.intValue());
         }
-      }
-      catch(IOException e) {
-        System.out.println("Error.");
-        e.printStackTrace();
-      }
-      
-    } 
-
-    /*public static double distanceCalc(double x, double y, double z) {
-      sqrt((x2 - x1)^2 + (y2 - y1)^2 + (z2 - z1)^2);
-    }*/
+    }
+    public static double distanceCalc(double x, double x1, double y, double y1, double z, double z1) {
+      return Math.sqrt(Math.pow((x - x1), 2) + Math.pow((y - y1), 2) + Math.pow((z - z1), 2));
+    }
 }
