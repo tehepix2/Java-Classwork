@@ -1,4 +1,4 @@
-package Magazine;
+package src.MagazineStuff;
 
 public class Magazine {
     private String name;
@@ -10,7 +10,7 @@ public class Magazine {
         this.genre = genre;
         this.content = content;
     }
-
+    
     public void displayContent() {
         System.out.println(content);
     }
