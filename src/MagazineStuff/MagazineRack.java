@@ -3,6 +3,7 @@ package src.MagazineStuff;
 public class MagazineRack {
     private Link head;
     public int displayCount = 1;
+    
     public MagazineRack(Link head) {
         this.head = head;
     }
@@ -23,14 +24,26 @@ public class MagazineRack {
                 isNotNull = false;
             }      
         }
+
         displayCount = 1;
     }
 
+   public Link getNull(Link start) {
+        if(start.getNext() == null) {
+            return start;
+        }
+        else {
+            return getNull(start.getNext());
+        }
+        
+
+    }
+
     public Magazine chooseItem(Link start, int count) {
-        if(count > 0) {
+        if(count > 1) {
             count--;
-            chooseItem(start.getNext(), count);
-            return (Magazine)start.getItem();
+            return chooseItem(start.getNext(), count);
+            
         }
         return (Magazine)start.getItem();
         
