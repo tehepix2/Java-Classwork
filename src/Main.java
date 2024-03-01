@@ -30,9 +30,9 @@ class Main {
           System.out.print("What would you like to access? : ");
           int magChoice = input.nextInt();
           lib.clearConsole();
-          System.out.println(rack1.chooseItem(rack1.getHead(), magChoice).getName());
-          System.out.println(rack1.chooseItem(rack1.getHead(), magChoice).getGenre());
-          System.out.println(rack1.chooseItem(rack1.getHead(), magChoice).getAuthor());
+          System.out.println("Title: " + rack1.chooseItem(rack1.getHead(), magChoice).getName());
+          System.out.println("Genre: " + rack1.chooseItem(rack1.getHead(), magChoice).getGenre());
+          System.out.println("Author: " + rack1.chooseItem(rack1.getHead(), magChoice).getAuthor());
           rack1.chooseItem(rack1.getHead(), magChoice).displayContent();
           System.out.println("Enter anything to continue...");
           int continueThing = input.nextInt();
@@ -46,6 +46,7 @@ class Main {
           lib.clearConsole();
           System.out.println("What would you like to change?\n1 -- Name\n2 -- Genre\n3 -- Author\n4 -- Content\n5 -- Cancel");
           int editChoice = input.nextInt();
+          lib.clearConsole();
           switch(editChoice) {
             case 1:
               System.out.print("Enter a new name: ");
@@ -93,11 +94,15 @@ class Main {
           String cContent = input.next();
           lib.clearConsole();
           rack1.getNull(rack1.getHead()).setNext(new Link(new Magazine(cName, cGenre, cContent, cAuthor), null));
-          lib.sleep(5000); 
+
         }
 
         else if (menuChoice == 4) {
-
+          System.out.println("Which magazine would you like to remove?");
+          rack1.displayRack(rack1.getHead());
+          int magChoice = input.nextInt();
+          lib.clearConsole();
+          System.out.println("What would you like to change?\n1 -- Name\n2 -- Genre\n3 -- Author\n4 -- Content\n5 -- Cancel");
         }
 
         else if (menuChoice == 5) {

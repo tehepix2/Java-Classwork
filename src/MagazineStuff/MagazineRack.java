@@ -38,7 +38,8 @@ public class MagazineRack {
         
 
     }
-
+        
+    
     public Magazine chooseItem(Link start, int count) {
         if(count > 1) {
             count--;
@@ -49,12 +50,19 @@ public class MagazineRack {
         
 
     }
-    public void removeItem() {
-
+    public Link chooseNode(Link start, int count) {
+        if(count > 1) {
+            count--;
+            return chooseNode(start.getNext(), count);
+            
+        }
+        return start;
     }
-    public void insertItem(Object item) {
-
+    
+    public void removeItem(int choice, Link head) {
+        chooseNode(head, choice - 1).setNext(chooseNode(head, choice + 1));
     }
+    
     public Link getHead() {
         return head;
     }
