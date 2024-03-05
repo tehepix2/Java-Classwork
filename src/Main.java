@@ -8,7 +8,24 @@ class Main {
     public static void main(String[] args) {
       lib.clearConsole();
       Scanner input = new Scanner(System.in);
-      Magazine mag1 = new Magazine("Egg", "egg", "bingus", "Chig bungus");
+      Magazine mag1 = new Magazine("The Very Hungry Caterpillar", "Peak Fiction", "In the light of the moon a little egg lay on a leaf. One Sunday morning the\r\n" + //
+                "warm sun came up….and POP, out of the egg came a tiny, very hungry\r\n" + //
+                "caterpillar. He started looking for some food. On Monday he ate through\r\n" + //
+                "one apple. But he was still hungry. On Tuesday he ate through two\r\n" + //
+                "pears, but he was still hungry.\r\n" + //
+                "On Wednesday he ate through three plums, but he was still hungry. On\r\n" + //
+                "Thursday he ate through four strawberries, but he was still hungry. On\r\n" + //
+                "Friday he ate through five oranges, but he was still hungry.\r\n" + //
+                "On Saturday he ate through one piece of chocolate cake, one ice-\r\n" + //
+                "cream cone, one pickle, one slice of Swiss cheese, one slice of salami,\r\n" + //
+                "one lollipop, one piece of cherry pie, one sausage, one cupcake, and\r\n" + //
+                "one slice of watermelon. That night he had a stomach ache! The next\r\n" + //
+                "day was Sunday again. The caterpillar ate through one nice leaf, and\r\n" + //
+                "after that he felt better. Now he wasn't hungry anymore--and he wasn't a\r\n" + //
+                "little caterpillar anymore. He was a big fat caterpillar. He built a small\r\n" + //
+                "house, called a cocoon, around himself. He stayed inside for more than\r\n" + //
+                "two weeks. Then he nibbled a hole in the cocoon, pushed his way out\r\n" + //
+                "and...He became a beautiful butterfly!", "Eric Carle");
       Magazine mag2 = new Magazine("eGg", "egg", "bingus", "burger king");
       Magazine mag3 = new Magazine("egG", "egg", "bingus", "mcdonalds");
 
