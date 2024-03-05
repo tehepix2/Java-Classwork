@@ -102,7 +102,9 @@ class Main {
           rack1.displayRack(rack1.getHead());
           int magChoice = input.nextInt();
           lib.clearConsole();
-          System.out.println("What would you like to change?\n1 -- Name\n2 -- Genre\n3 -- Author\n4 -- Content\n5 -- Cancel");
+          rack1.removeItem(magChoice, rack1.getHead());
+          ((Magazine)rack1.chooseNode(rack1.getHead(), magChoice).getItem()).getName();
+
         }
 
         else if (menuChoice == 5) {

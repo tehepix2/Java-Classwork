@@ -7,7 +7,9 @@ public class MagazineRack {
     public MagazineRack(Link head) {
         this.head = head;
     }
-    
+    public void setHead(Link head) {
+        this.head = head;
+    }
     public void displayRack(Link start) {
         boolean isNotNull = true;
    
@@ -60,7 +62,16 @@ public class MagazineRack {
     }
     
     public void removeItem(int choice, Link head) {
-        chooseNode(head, choice - 1).setNext(chooseNode(head, choice + 1));
+        if (chooseNode(head, choice - 1).getNext().getNext() == null) {
+            chooseNode(head, choice - 1).setNext(null);
+        }
+        else if (choice == 1) {
+            setHead(chooseNode(head, choice + 1));
+        }
+        else {
+            chooseNode(head, choice - 1).setNext(chooseNode(head, choice + 1));
+        }
+        
     }
     
     public Link getHead() {
